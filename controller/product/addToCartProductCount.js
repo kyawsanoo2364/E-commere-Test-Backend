@@ -2,7 +2,7 @@ const addToCartModel = require("../../model/addToCartModel");
 
 const addToCartProductCount = async (req,res)=>{
     try{
-        const userId =req.userId;
+        const userId =req.user_id;
         const count = await addToCartModel.countDocuments({userId:userId});
         res.status(200).json({message:"ok",data:{count:count},error:false,success:true});
     }catch(e){

@@ -9,7 +9,7 @@ const addToCartController = async(req,res)=>{
         }
         const payload = {
             productId:productId,
-            userId:req?.userId,
+            userId:req.user_id,
             quantity:1
         }
 

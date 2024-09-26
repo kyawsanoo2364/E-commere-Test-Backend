@@ -19,6 +19,9 @@ const updateAddToCartProduct = require("../controller/product/updateAddToCartPro
 const deleteCartProduct = require("../controller/product/deleteCartProduct");
 const searchProduct = require("../controller/product/searchProduct");
 const filterProduct = require("../controller/product/filterProduct");
+const paymentController = require("../controller/order/paymentController");
+const webhook = require("../controller/order/webhook");
+const orderController = require("../controller/order/orderController");
 
 const router = express.Router();
 
@@ -48,5 +51,8 @@ router.post("/update-productCart",authToken,updateAddToCartProduct);
 router.post("/delete-cart-product",authToken,deleteCartProduct);
 router.get("/search",searchProduct)
 router.post("/filter-product",filterProduct)
+router.post("/checkout",authToken,paymentController)
+router.post("/webhook",webhook)
+router.get("/order-list",authToken,orderController)
 
 module.exports  =router;
